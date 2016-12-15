@@ -1,0 +1,28 @@
+<div>
+  <h2>合計金額： <%= @amount %>円</h2>
+</div>
+
+<div class="row">
+    <%= form_for(@detail) do |f| %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.label :user %>
+      <%= f.collection_select :user, User.all, :name, :name, :prompt => true %>
+
+      <%= f.label :department %>
+      <%= f.text_field :department %>
+
+      <%= f.label :payment %>
+      <%= f.number_field :payment %>
+
+      <%= f.submit "Create detail" %>
+    <% end %>
+</div>
+
+<br>
+<div>
+  <%= link_to "明細一覧", details_path %> <br>
+  <%= link_to "ユーザー一覧", users_path %>
+</div>

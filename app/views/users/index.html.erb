@@ -1,0 +1,22 @@
+<h1>Users#index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "新規ユーザー作成", action: "new" %> <br>
+  <%= link_to "戻る", new_detail_path %>
+</div>
