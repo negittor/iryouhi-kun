@@ -3,13 +3,20 @@ class DetailsController < ApplicationController
     @details = Detail.all
   end
 
-  def show
+  def edit
+    @detail = Detail.find(params[:id])
   end
 
   def update
+    @detail = Detail.find(params[:id])
+    @detail.update(detail_params)
+    redirect_to details_path
   end
 
   def destroy
+    @detail = Detail.find(params[:id])
+    @detail.destroy
+    redirect_to details_path
   end
 
   def create

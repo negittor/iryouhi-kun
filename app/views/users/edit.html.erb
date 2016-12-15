@@ -1,0 +1,10 @@
+
+<div class="row">
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.submit "Update user" %>
+    <% end %>
+</div>

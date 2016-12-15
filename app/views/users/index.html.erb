@@ -4,13 +4,16 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Edit</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |u| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= u.name %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "修正", edit_user_path(user) %>
+          <%= link_to "削除", user_path(user), method: :delete, data: { confirm: '削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,20 @@
+<h3>修正</h3>
+
+<div class="row">
+    <%= form_for(@detail) do |f| %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.label :user %>
+      <%= f.collection_select :user, User.all, :name, :name, :prompt => true %>
+
+      <%= f.label :department %>
+      <%= f.text_field :department %>
+
+      <%= f.label :payment %>
+      <%= f.number_field :payment %>
+
+      <%= f.submit "Update detail" %>
+    <% end %>
+</div>
