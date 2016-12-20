@@ -21,8 +21,11 @@ class DetailsController < ApplicationController
 
   def create
     @detail = Detail.new(detail_params)
-    @detail.save
-    redirect_to action: 'new'
+    if @detail.save
+      redirect_to action: 'new'
+    else
+      render action: :new
+    end
   end
 
   def new

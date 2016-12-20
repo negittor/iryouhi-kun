@@ -1,4 +1,13 @@
 <div>
+  <% if @detail.errors.any? %>
+    <%= @detail.errors.full_messages.count %>error messages<br>
+    <% @detail.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
   <h2>合計金額： <%= @amount %>円</h2>
 </div>
 
