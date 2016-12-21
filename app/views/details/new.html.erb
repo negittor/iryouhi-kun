@@ -1,37 +1,15 @@
-<div>
-  <% if @detail.errors.any? %>
-    <%= @detail.errors.full_messages.count %>error messages<br>
-    <% @detail.errors.full_messages.each do |msg| %>
-      <%= msg %>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'layouts/error', obj: @detail %>
 
-<div>
-  <h2>合計金額： <%= @amount %>円</h2>
-</div>
-
-<div class="row">
-    <%= form_for(@detail) do |f| %>
-
-      <%= f.label :date %>
-      <%= f.date_field :date %>
-
-      <%= f.label :user %>
-      <%= f.collection_select :user, User.all, :name, :name, :prompt => true %>
-
-      <%= f.label :department %>
-      <%= f.text_field :department %>
-
-      <%= f.label :payment %>
-      <%= f.number_field :payment %>
-
-      <%= f.submit "Create detail" %>
-    <% end %>
+<div class="card text-xs-center">
+  <div class="card-header card-primary text-white">現在の合計金額</div>
+  <div class="card-block"><h4><%= @amount.to_s(:delimited) %>円</h4></div>
 </div>
 
 <br>
-<div>
-  <%= link_to "明細一覧", details_path %> <br>
-  <%= link_to "ユーザー一覧", users_path %>
+
+<div class="card">
+  <div class="card-header card-primary text-white text-xs-center">明細を入力してください</div>
+
+  <%= render 'form' %>
+
 </div>

@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">
+      <%= obj.errors.full_messages.count %> error messages<br>
+    </h4>
+    <% obj.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>

@@ -1,19 +1,7 @@
+<%= render 'layouts/error', obj: @user %>
+
+<%= render 'form' %>
+
 <div>
-  <% if @user.errors.any? %>
-    <%= @user.errors.full_messages.count %>error messages<br>
-    <% @user.errors.full_messages.each do |msg| %>
-      <%= msg %>
-    <% end %>
-  <% end %>
-</div>
-<br><br>
-
-<div class="row">
-    <%= form_for(@user) do |f| %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.submit "Create user" %>
-    <% end %>
+  <%= link_to "一覧に戻る", action: "index" %> <br>
 </div>

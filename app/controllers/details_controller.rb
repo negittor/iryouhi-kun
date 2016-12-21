@@ -9,8 +9,11 @@ class DetailsController < ApplicationController
 
   def update
     @detail = Detail.find(params[:id])
-    @detail.update(detail_params)
-    redirect_to details_path
+    if @detail.update(detail_params)
+      redirect_to action: 'index'
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
@@ -24,7 +27,8 @@ class DetailsController < ApplicationController
     if @detail.save
       redirect_to action: 'new'
     else
-      render action: :new
+      @amount = Detail.all.sum(:payment)
+      render action: 'new'
     end
   end
 

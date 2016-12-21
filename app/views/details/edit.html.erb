@@ -1,20 +1,11 @@
-<h3>修正</h3>
+<%= render 'layouts/error', obj: @detail %>
 
-<div class="row">
-    <%= form_for(@detail) do |f| %>
+<div class="card">
+  <div class="card-header card-primary text-white text-xs-center">明細を修正してください</div>
 
-      <%= f.label :date %>
-      <%= f.date_field :date %>
+  <%= render 'form' %>
+</div>
 
-      <%= f.label :user %>
-      <%= f.collection_select :user, User.all, :name, :name, :prompt => true %>
-
-      <%= f.label :department %>
-      <%= f.text_field :department %>
-
-      <%= f.label :payment %>
-      <%= f.number_field :payment %>
-
-      <%= f.submit "Update detail" %>
-    <% end %>
+<div>
+  <%= link_to "一覧に戻る", action: "index" %> <br>
 </div>

@@ -1,10 +1,7 @@
+<%= render 'layouts/error', obj: @user %>
 
-<div class="row">
-    <%= form_for(@user) do |f| %>
+<%= render 'form' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.submit "Update user" %>
-    <% end %>
+<div>
+  <%= link_to "一覧に戻る", action: "index" %> <br>
 </div>
