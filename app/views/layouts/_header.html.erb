@@ -3,9 +3,26 @@
   <%= link_to "医療費くんβ", root_path, class: "navbar-brand" %>
 
   <ul class="nav navbar-nav float-xs-right">
-    <li class="nav-item"><%= link_to "新規入力", new_detail_path, class: "nav-link" %></li>
-    <li class="nav-item"><%= link_to "明細一覧", details_path, class: "nav-link" %></li>
-    <li class="nav-item"><%= link_to "利用者一覧", users_path, class: "nav-link" %></li>
+
+    <% if admin_signed_in? %>
+      <li class="nav-item navbar-text">
+        ようこそ<%= current_admin.email %>さん
+      </li>
+      <li class="nav-item">
+        <%= link_to 'パスワード変更', edit_admin_registration_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link"  %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "ログイン", new_admin_session_path, class:"nav-link"  %>
+      </li>
+    <% end %>
+
+      <li class="nav-item"><%= link_to "新規入力", new_detail_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "明細一覧", details_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "利用者一覧", users_path, class: "nav-link" %></li>
   </ul>
 </nav>
 <br>
